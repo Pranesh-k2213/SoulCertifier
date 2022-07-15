@@ -17,11 +17,11 @@ The project uses smart contract that is developed with hardhat under './Hardhat-
 
 After running "yarn" to install required dependencies, try running
 
-'''
+```
 yarn hardhat deploy
 yarn hardhat coverage
 yarn hardhat node
-'''
+```
 
 ### Node express uri server
 
