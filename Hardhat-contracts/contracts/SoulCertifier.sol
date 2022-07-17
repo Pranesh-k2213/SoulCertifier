@@ -24,7 +24,7 @@ contract SoulCertifier is Context, ERC165, IERC1155, IERC1155MetadataURI {
     // To store uri
     string private _uri;
 
-    event BunchCreated(address indexed by, uint256 indexed id, address[] to);
+    event BunchCreated(address indexed by, uint256 indexed id, bool indexed isNew, address[] to);
     event TokenBurned(address indexed account, address indexed by, uint256 indexed id);
 
     modifier callerIsCreater(address creater, uint256 id) {
@@ -115,7 +115,7 @@ contract SoulCertifier is Context, ERC165, IERC1155, IERC1155MetadataURI {
             }
         }
         _createdBy[tokenId] = creater;
-        emit BunchCreated(creater, tokenId, accounts);
+        emit BunchCreated(creater, tokenId, true, accounts);
         tokenId += 1;
         return tokenId - 1;
     }
@@ -131,7 +131,7 @@ contract SoulCertifier is Context, ERC165, IERC1155, IERC1155MetadataURI {
                 //emit TransferSingle(msg.sender, address(0), accounts[i], id, 1);
             }
         }
-        emit BunchCreated(msg.sender, id, accounts);
+        emit BunchCreated(msg.sender, id, false, accounts);
         return;
     }
 

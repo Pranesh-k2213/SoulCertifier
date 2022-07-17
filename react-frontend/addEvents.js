@@ -16,7 +16,7 @@ const addEvents = async () => {
     chainId: moralisChainId,
     sync_historical: true,
     address: contractAddress,
-    topic: "BunchCreated(address,uint256,address[])",
+    topic: "BunchCreated(address,uint256,bool,address[])",
     description: "Fired on createBunch",
     abi: {
       anonymous: false,
@@ -32,6 +32,12 @@ const addEvents = async () => {
           internalType: "uint256",
           name: "id",
           type: "uint256",
+        },
+        {
+          indexed: true,
+          internalType: "bool",
+          name: "isNew",
+          type: "bool",
         },
         {
           indexed: false,
