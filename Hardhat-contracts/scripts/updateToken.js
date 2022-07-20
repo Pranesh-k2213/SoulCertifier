@@ -3,12 +3,12 @@ const { moveBlocks } = require("../utils/move-blocks")
 
 const MOVE_BLOCKS = 4
 const SLEEP_AMOUNT = 500
-const TOKEN_ID = 0
+const TOKEN_ID = 1
 
 const updateNewToken = async () => {
     const { deployer } = await getNamedAccounts()
     const users = await getUnnamedAccounts()
-    const accounts = [users[0], users[2]]
+    const accounts = [users[2], users[3]]
     const soulCertifier = await ethers.getContract("SoulCertifier")
     const response = await soulCertifier.createBunchWithId(accounts, TOKEN_ID, { from: deployer })
     await response.wait(1)

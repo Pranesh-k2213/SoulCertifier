@@ -1,7 +1,7 @@
 const { ethers, getNamedAccounts, getUnnamedAccounts, network } = require("hardhat")
 const { moveBlocks } = require("../utils/move-blocks")
 
-const USER_NUM = 1
+const USER_NUM = 0
 const TOKEN_ID = 0
 const MOVE_BLOCKS = 4
 const SLEEP_AMOUNT = 500

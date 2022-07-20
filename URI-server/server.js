@@ -13,7 +13,7 @@ app.use((req, res, next) => {
     next()
 })
 
-app.get("/:id", (req, res) => {
+app.get("/api/:id", (req, res) => {
     const { id } = req.params
     const uri_json = JSON.parse(fs.readFileSync("./uri_meta_data.json"))
     console.log(uri_json[id])

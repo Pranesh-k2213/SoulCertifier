@@ -8,7 +8,7 @@ Moralis.Cloud.afterSave("BunchCreated", async (request) => {
     const isNew = request.object.get("isNew")
     const toAddresses = request.object.get("to")
     const byAddress = request.object.get("by")
-    const tokenId = request.object.get("uid_decimal")
+    const tokenId = request.object.get("uid")
     if (!isNew) {
       const query = new Moralis.Query(ActiveCertificates)
       query.equalTo("TokenId", tokenId)
@@ -29,6 +29,7 @@ Moralis.Cloud.afterSave("BunchCreated", async (request) => {
       certificate.set("Owner", toAddresses[i])
       certificate.set("Provider", byAddress)
       certificate.set("TokenId", tokenId)
+      certificate.set("Owner_lower", toAddresses[i].toLowerCase())
       logger.info(
         `Adding ${toAddresses[i]} with tokenId ${tokenId} from provider ${byAddress}`
       )
@@ -43,7 +44,7 @@ Moralis.Cloud.afterSave("TokenBurned", async (request) => {
   if (confirmed) {
     const ActiveCertificates = Moralis.Object.extend("ActiveCertificates")
     const account = request.object.get("account")
-    const tokenId = request.object.get("uid_decimal")
+    const tokenId = request.object.get("uid")
     logger.info(`Searching account:${account} with token id:${tokenId}`)
     const query = new Moralis.Query(ActiveCertificates)
     query.equalTo("TokenId", tokenId)
