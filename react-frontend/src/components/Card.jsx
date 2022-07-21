@@ -1,9 +1,10 @@
 import { useState } from "react"
 import { useEffect } from "react"
-
+import { NFT } from "web3uikit"
+import { useMoralis } from "react-moralis"
 const Card = ({ tokenId, provider }) => {
   const [tokenJson, setTokenJson] = useState(null)
-
+  const { chainId } = useMoralis()
   useEffect(() => {
     const fetchTokenJson = async () => {
       const response = await fetch(`/api/${tokenId}/`)

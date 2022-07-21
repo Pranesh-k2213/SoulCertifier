@@ -2,7 +2,7 @@ require("dotenv").config()
 const fs = require("fs")
 const { ethers, getChainId } = require("hardhat")
 
-const frontend_contractFile = "../react-frontend/constants"
+const frontend_contractFile = "../react-frontend/src/constants"
 
 module.exports = async () => {
     if (process.env.UPDATE_FRONTEND) {
