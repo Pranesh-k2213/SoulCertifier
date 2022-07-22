@@ -57,3 +57,10 @@ a {
   display: flex;
   justify-content: center;
 }
+
+.button-order {
+  display: flex;
+}
+.button-order > * {
+  margin: 10px 20px;
+}

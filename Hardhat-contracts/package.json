@@ -28,7 +28,8 @@
     "scripts": {
         "test": "mocha",
         "hardhat:create": "yarn hardhat run ./scripts/createNewToken.js --network localhost",
-        "hardhat:burn": "yarn hardhat run ./scripts/burnToken.js --network localhost"
+        "hardhat:burn": "yarn hardhat run ./scripts/burnToken.js --network localhost",
+        "move": "yarn hardhat run ./scripts/move-blocks.js --network localhost"
     },
     "keywords": [],
     "author": "",

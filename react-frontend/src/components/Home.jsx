@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { useMoralisQuery } from "react-moralis"
 import { useMoralis } from "react-moralis"
 import Card from "./Card"
