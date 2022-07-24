@@ -29,7 +29,7 @@ const Card = ({ tokenId, provider }) => {
       <br />
       description:{tokenJson.description}
       <br />
-      <img src={tokenJson.image} alt="nft" />
+      <img className="card-image" src={tokenJson.image} alt="nft" />
     </div>
   ) : (
     <div>Loading...</div>

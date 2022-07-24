@@ -64,3 +64,31 @@ a {
 .button-order > * {
   margin: 10px 20px;
 }
+
+.home-view {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.home-view h1 {
+  align-self: center;
+}
+.home-right {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.home-left {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image {
+  width: 100px;
+}
+
+.flex {
+  display: flex;
+}

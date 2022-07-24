@@ -1,5 +1,5 @@
-import { useMoralisQuery } from "react-moralis"
-import { useMoralis } from "react-moralis"
+import { useMoralis, useMoralisQuery } from "react-moralis"
+import Certificates from "./Certificates"
 import Card from "./Card"
 const Home = () => {
   const { account } = useMoralis()
@@ -33,20 +33,26 @@ const Home = () => {
           </button>
         </div>
       ) : (
-        <div>
-          <h1>You have got {certificates.length} certificates</h1>
-          {certificates.map((certificate) => {
-            const tokenId = parseInt(certificate.attributes.TokenId)
-            const provider = certificate.attributes.Provider
-            return (
-              <Card
-                className="card"
-                provider={provider}
-                tokenId={tokenId}
-                key={tokenId}
-              />
-            )
-          })}
+        <div className="home-view">
+          <div className="home-left">
+            <h1>You have got {certificates.length} certificates</h1>
+            {certificates.map((certificate) => {
+              const tokenId = parseInt(certificate.attributes.TokenId)
+              const provider = certificate.attributes.Provider
+              return (
+                <Card
+                  className="card"
+                  provider={provider}
+                  tokenId={tokenId}
+                  key={tokenId}
+                />
+              )
+            })}
+          </div>
+          <div className="home-right">
+            <h1>Created Certificates</h1>
+            <Certificates />
+          </div>
         </div>
       )}
     </div>
